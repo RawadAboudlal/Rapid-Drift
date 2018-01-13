@@ -1,0 +1,8 @@
+com.rawad.superfast.entity.TransformComponent
+	rotation=0.0,0.0,-0.0,1.0
+	scale=1.0,1.0,1.0
+	position=0.0,0.0,-5.0
+com.rawad.superfast.entity.MeshComponent
+	mesh=entity/face/face
+com.rawad.superfast.entity.TextureComponent
+	texture=entity/face/face

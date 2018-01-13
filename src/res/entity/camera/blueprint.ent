@@ -1,0 +1,9 @@
+com.rawad.superfast.entity.TransformComponent
+	rotation=0.0,0.0,-1.0,0.0
+	scale=1.0,1.0,1.0
+	position=0.0,0.0,0.0
+com.rawad.superfast.entity.PerspectiveCameraComponent
+	near_clip=0.1
+	field_of_view=90.0
+	far_clip=100.0
+com.rawad.superfast.entity.AttachmentComponent
