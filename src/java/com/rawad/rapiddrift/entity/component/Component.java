@@ -1,4 +1,4 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.component;
 
 
 /**

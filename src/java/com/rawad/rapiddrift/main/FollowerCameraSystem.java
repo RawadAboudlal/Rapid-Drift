@@ -1,10 +1,10 @@
 package com.rawad.rapiddrift.main;
 
 import com.rawad.rapiddrift.engine.GameSystem;
-import com.rawad.rapiddrift.entity.AttachmentComponent;
 import com.rawad.rapiddrift.entity.Entity;
-import com.rawad.rapiddrift.entity.PerspectiveCameraComponent;
-import com.rawad.rapiddrift.entity.TransformComponent;
+import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.PerspectiveCameraComponent;
+import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
 import com.rawad.rapiddrift.math.Vector3f;
 
@@ -52,9 +52,14 @@ public class FollowerCameraSystem extends GameSystem {
 		
 //		Vector3f newCameraPosition = attachedToPosition.subtract(attachedToOrientation.normalize().scale(DISTANCE_BEHIND));
 		
-		cameraTransform.setPosition(attachedToPosition.add(new Vector3f(0, 0, DISTANCE_BEHIND)));
+		cameraTransform.setPosition(attachedToPosition.subtract(attachedToOrientation.normalize().scale(DISTANCE_BEHIND)));
 		
-		cameraTransform.setRotation(attachedToRotation);
+		// TODO: Think about the forward direction of an object vs. the rotation and how that affects it.
+		
+//		cameraTransform.setRotation(attachedToRotation);
+		
+		System.out.printf("Camera position: %s, Attached to position: %s\nAttached to rotation axis angle: %s\n", 
+				cameraTransform.getPosition(), attachedToPosition, attachedToRotation.toRotationAxisAngle());
 		
 //		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), 1)));
 //		transformComp.setRotation(new Quaternionf(attachedToPosition.subtract(newCameraPosition)));

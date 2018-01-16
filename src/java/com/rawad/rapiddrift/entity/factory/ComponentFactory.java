@@ -1,6 +1,8 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.factory;
 
 import java.util.HashMap;
+
+import com.rawad.rapiddrift.entity.component.Component;
 
 /**
  * @author Rawad

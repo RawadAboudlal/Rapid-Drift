@@ -5,12 +5,11 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL15;
 
 import com.rawad.rapiddrift.entity.Entity;
-import com.rawad.rapiddrift.entity.MeshComponent;
-import com.rawad.rapiddrift.entity.PerspectiveCameraComponent;
-import com.rawad.rapiddrift.entity.TextureComponent;
-import com.rawad.rapiddrift.entity.TransformComponent;
+import com.rawad.rapiddrift.entity.component.MeshComponent;
+import com.rawad.rapiddrift.entity.component.PerspectiveCameraComponent;
+import com.rawad.rapiddrift.entity.component.TextureComponent;
+import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Matrix4f;
-import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.mesh.Mesh;
 import com.rawad.rapiddrift.renderengine.buffers.IndexBufferObject;
 import com.rawad.rapiddrift.renderengine.buffers.VertexBufferObject;

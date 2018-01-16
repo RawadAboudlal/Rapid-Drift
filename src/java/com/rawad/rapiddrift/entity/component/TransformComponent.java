@@ -1,4 +1,4 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.component;
 
 import com.rawad.rapiddrift.math.Matrix4f;
 import com.rawad.rapiddrift.math.Quaternionf;
@@ -57,7 +57,7 @@ public class TransformComponent extends Component {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.Component#clone()
+	 * @see com.rawad.rapiddrift.entity.component.Component#clone()
 	 */
 	@Override
 	public Component clone() {

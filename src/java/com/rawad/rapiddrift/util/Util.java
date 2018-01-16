@@ -15,25 +15,28 @@ public class Util {
 	
 	private static final String EXTENSION_SEPARATOR = ".";
 	
-	public static String getPath(String extension, String... pathParts) {
-		String path = String.join(File.separator, pathParts) + EXTENSION_SEPARATOR + extension;
-		return path;
+	public static String getPath(String... pathParts) {
+		return String.join(File.separator, pathParts);
+	}
+	
+	public static String getFilePath(String extension, String... pathParts) {
+		return Util.getPath(pathParts) + EXTENSION_SEPARATOR + extension;
 	}
 	
 	public static URL getResource(String extension, String... pathParts) {
-		return Util.class.getClassLoader().getResource(Util.getPath(extension, pathParts));
+		return Util.class.getClassLoader().getResource(Util.getFilePath(extension, pathParts));
 	}
 	
 	public static InputStream openFileStream(String extension, String... path) {
-		return Util.class.getClassLoader().getResourceAsStream(Util.getPath(extension, path));
+		return Util.class.getClassLoader().getResourceAsStream(Util.getFilePath(extension, path));
 	}
 	
 	public static URL getResource(Class<?> clazz, String extension, String... pathParts) {
-		return clazz.getResource(Util.getPath(extension, pathParts));
+		return clazz.getResource(Util.getFilePath(extension, pathParts));
 	}
 	
 	public static InputStream openFileStream(Class<?> clazz, String extension, String... path) {
-		return clazz.getResourceAsStream(Util.getPath(extension, path));
+		return clazz.getResourceAsStream(Util.getFilePath(extension, path));
 	}
 	
 	public static int parseInt(String potentialInt) {

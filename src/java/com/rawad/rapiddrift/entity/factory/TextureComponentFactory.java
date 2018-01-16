@@ -1,7 +1,9 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.factory;
 
 import java.util.HashMap;
 
+import com.rawad.rapiddrift.entity.component.Component;
+import com.rawad.rapiddrift.entity.component.TextureComponent;
 import com.rawad.rapiddrift.renderengine.texture.TextureLoader;
 import com.rawad.rapiddrift.util.Util;
 
@@ -14,7 +16,7 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 	private static final String TEXTURE_KEY = "texture";
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#createComponent(java.util.HashMap)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#createComponent(java.util.HashMap)
 	 */
 	@Override
 	public TextureComponent createComponent(HashMap<String, String> data) {
@@ -31,7 +33,7 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getStringData(com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getStringData(com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public HashMap<String, String> getStringData(HashMap<String, String> data, Component comp) {
@@ -45,7 +47,7 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getComponentName()
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getComponentName()
 	 */
 	@Override
 	public String getComponentName() {
@@ -53,7 +55,7 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public boolean matchesComponent(Component comp) {

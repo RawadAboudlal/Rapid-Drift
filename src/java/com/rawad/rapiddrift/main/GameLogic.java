@@ -9,12 +9,12 @@ import org.lwjgl.glfw.GLFWKeyCallbackI;
 import com.rawad.rapiddrift.engine.GameEngine;
 import com.rawad.rapiddrift.engine.GameSystem;
 import com.rawad.rapiddrift.engine.IGameLogic;
-import com.rawad.rapiddrift.entity.AttachmentComponent;
 import com.rawad.rapiddrift.entity.Entity;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
 import com.rawad.rapiddrift.entity.EntityLocator;
-import com.rawad.rapiddrift.entity.TextureComponent;
-import com.rawad.rapiddrift.entity.TransformComponent;
+import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.TextureComponent;
+import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
 import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.renderengine.IRenderer;
@@ -159,7 +159,7 @@ public class GameLogic implements IGameLogic, IRenderer {
 			rotY = -5;
 		}
 		
-		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)));
+//		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)));
 		
 		for(GameSystem gameSystem: gameSystems) {
 			gameSystem.tick();

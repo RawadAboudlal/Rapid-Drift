@@ -1,5 +1,6 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.component;
 
+import com.rawad.rapiddrift.entity.Entity;
 
 /**
  * @author Rawad
@@ -24,7 +25,7 @@ public class AttachmentComponent extends Component {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.Component#clone()
+	 * @see com.rawad.rapiddrift.entity.component.Component#clone()
 	 */
 	@Override
 	public Component clone() {

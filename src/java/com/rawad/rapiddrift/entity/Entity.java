@@ -3,6 +3,8 @@ package com.rawad.rapiddrift.entity;
 import java.util.Collection;
 import java.util.HashMap;
 
+import com.rawad.rapiddrift.entity.component.Component;
+
 /**
  * @author Rawad
  *

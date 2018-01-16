@@ -1,6 +1,9 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.factory;
 
 import java.util.HashMap;
+
+import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.Component;
 
 /**
  * @author Rawad
@@ -9,7 +12,7 @@ import java.util.HashMap;
 public class AttachmentComponentFactory implements ComponentFactory<AttachmentComponent> {
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#createComponent(java.util.HashMap)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#createComponent(java.util.HashMap)
 	 */
 	@Override
 	public AttachmentComponent createComponent(HashMap<String, String> data) {
@@ -21,7 +24,7 @@ public class AttachmentComponentFactory implements ComponentFactory<AttachmentCo
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getComponentName()
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getComponentName()
 	 */
 	@Override
 	public String getComponentName() {
@@ -29,7 +32,7 @@ public class AttachmentComponentFactory implements ComponentFactory<AttachmentCo
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getStringData(java.util.HashMap, com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getStringData(java.util.HashMap, com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public HashMap<String, String> getStringData(HashMap<String, String> data, Component comp) {
@@ -37,7 +40,7 @@ public class AttachmentComponentFactory implements ComponentFactory<AttachmentCo
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public boolean matchesComponent(Component comp) {

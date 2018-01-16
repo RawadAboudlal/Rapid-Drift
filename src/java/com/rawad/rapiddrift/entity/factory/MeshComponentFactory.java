@@ -1,7 +1,9 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.factory;
 
 import java.util.HashMap;
 
+import com.rawad.rapiddrift.entity.component.Component;
+import com.rawad.rapiddrift.entity.component.MeshComponent;
 import com.rawad.rapiddrift.mesh.ObjFileLoader;
 import com.rawad.rapiddrift.util.Util;
 
@@ -14,7 +16,7 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 	private static final String MESH_KEY = "mesh";
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#createComponent(java.util.HashMap)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#createComponent(java.util.HashMap)
 	 */
 	@Override
 	public MeshComponent createComponent(HashMap<String, String> data) {
@@ -31,7 +33,7 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getStringData(java.util.HashMap, com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getStringData(java.util.HashMap, com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public HashMap<String, String> getStringData(HashMap<String, String> data, Component comp) {
@@ -45,7 +47,7 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#getComponentName()
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#getComponentName()
 	 */
 	@Override
 	public String getComponentName() {
@@ -53,7 +55,7 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.Component)
+	 * @see com.rawad.rapiddrift.entity.factory.ComponentFactory#matchesComponent(com.rawad.rapiddrift.entity.component.Component)
 	 */
 	@Override
 	public boolean matchesComponent(Component comp) {

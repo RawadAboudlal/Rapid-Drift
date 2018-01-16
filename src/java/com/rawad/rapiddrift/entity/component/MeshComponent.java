@@ -1,4 +1,4 @@
-package com.rawad.rapiddrift.entity;
+package com.rawad.rapiddrift.entity.component;
 
 import com.rawad.rapiddrift.mesh.Mesh;
 
@@ -40,7 +40,7 @@ public class MeshComponent extends Component {
 	}
 	
 	/**
-	 * @see com.rawad.rapiddrift.entity.Component#clone()
+	 * @see com.rawad.rapiddrift.entity.component.Component#clone()
 	 */
 	@Override
 	public MeshComponent clone() {

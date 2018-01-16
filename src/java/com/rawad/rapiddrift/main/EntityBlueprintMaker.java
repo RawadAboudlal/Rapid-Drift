@@ -1,13 +1,15 @@
 package com.rawad.rapiddrift.main;
 
-import com.rawad.rapiddrift.entity.AttachmentComponent;
+import java.io.File;
+
 import com.rawad.rapiddrift.entity.Entity;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
 import com.rawad.rapiddrift.entity.EntityLocator;
-import com.rawad.rapiddrift.entity.MeshComponent;
-import com.rawad.rapiddrift.entity.PerspectiveCameraComponent;
-import com.rawad.rapiddrift.entity.TextureComponent;
-import com.rawad.rapiddrift.entity.TransformComponent;
+import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.MeshComponent;
+import com.rawad.rapiddrift.entity.component.PerspectiveCameraComponent;
+import com.rawad.rapiddrift.entity.component.TextureComponent;
+import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
 import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.util.Loader;
@@ -60,7 +62,14 @@ public class EntityBlueprintMaker {
 		EntityBlueprintManager.addBlueprint(EntityLocator.FACE, face);
 		
 		// Need to ensure these folder and the entity folder are all already present on file system.
-		Loader.saveEntities("src", "res");
+		Loader.saveEntities();
+		
+//		File entityFolder = new File("src/res/entity/");
+//		
+//		for(File file: entityFolder.listFiles()) {
+//			System.out.println(file.getPath());
+//		}
+		
 		
 	}
 	

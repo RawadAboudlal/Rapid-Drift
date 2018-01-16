@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.rawad.rapiddrift.entity.component.Component;
+import com.rawad.rapiddrift.entity.factory.ComponentFactory;
 import com.rawad.rapiddrift.util.Util;
 
 /**
@@ -84,7 +86,7 @@ public class EntityBlueprintLoader {
 		
 		HashMap<String, String> data = new HashMap<String, String>();
 		
-		try (PrintWriter writer = new PrintWriter(Util.getPath(ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
+		try (PrintWriter writer = new PrintWriter(Util.getFilePath(ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
 			
 			for(Component comp: e.getComponents()) {
 				
