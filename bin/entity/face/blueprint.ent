@@ -1,8 +1,0 @@
-com.rawad.rapiddrift.entity.component.TransformComponent
-	rotation=0.0,0.0,-0.0,1.0
-	scale=1.0,1.0,1.0
-	position=0.0,0.0,-5.0
-com.rawad.rapiddrift.entity.component.MeshComponent
-	mesh=entity/face/face
-com.rawad.rapiddrift.entity.component.TextureComponent
-	texture=entity/face/face
