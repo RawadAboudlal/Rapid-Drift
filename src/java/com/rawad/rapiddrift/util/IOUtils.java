@@ -16,7 +16,7 @@ import org.lwjgl.BufferUtils;
  * @author Rawad
  *
  */
-public final class IOUtil {
+public final class IOUtils {
 	
 	private static ByteBuffer resizeBuffer(ByteBuffer buffer, int newCapacity) {
 		
@@ -71,7 +71,7 @@ public final class IOUtil {
 					}
 					
 					if (buffer.remaining() == 0) {
-						buffer = IOUtil.resizeBuffer(buffer, buffer.capacity() * 3 / 2);// 50%
+						buffer = IOUtils.resizeBuffer(buffer, buffer.capacity() * 3 / 2);// 50%
 					}
 					
 				}
