@@ -1,7 +1,5 @@
 package com.rawad.rapiddrift.main;
 
-import java.io.File;
-
 import com.rawad.rapiddrift.entity.Entity;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
 import com.rawad.rapiddrift.entity.EntityLocator;

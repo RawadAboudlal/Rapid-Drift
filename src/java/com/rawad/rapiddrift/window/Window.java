@@ -300,7 +300,7 @@ public final class Window {
 		
 		GLFW.glfwDefaultWindowHints();
 		
-		if(glCaps.OpenGL32) {
+		if(glCaps.OpenGL33) {
 			
 			GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 3);
 			GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 3);
