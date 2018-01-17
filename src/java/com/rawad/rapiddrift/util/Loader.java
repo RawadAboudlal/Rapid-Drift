@@ -36,7 +36,7 @@ public final class Loader {
 	
 	public static void loadEntities() {
 		
-		File entitiesFolder = new File(Util.getPath(ENTITY_BLUEPRINT_PATH));
+		File entitiesFolder = new File(Utils.getPath(ENTITY_BLUEPRINT_PATH));
 		
 		for(File entityFolder: entitiesFolder.listFiles()) {
 			EntityBlueprintManager.addBlueprint(entityFolder.getName(), entityBlueprintLoader.loadEntityBlueprint(

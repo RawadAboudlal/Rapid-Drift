@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.stb.STBImage;
 
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * @author Rawad
@@ -20,11 +20,11 @@ public final class TextureLoader {
 	private static final String TEXTURE_EXTENSION = "png";
 	
 	public static Texture loadTexture(String... pathParts) {
-		return TextureLoader.loadFromUrl(Util.getResource(TEXTURE_EXTENSION, pathParts));
+		return TextureLoader.loadFromUrl(Utils.getResource(TEXTURE_EXTENSION, pathParts));
 	}
 	
 	public static Texture loadTexture(Class<?> relativeTo, String... pathparts) {
-		return TextureLoader.loadFromUrl(Util.getResource(relativeTo, TEXTURE_EXTENSION, pathparts));
+		return TextureLoader.loadFromUrl(Utils.getResource(relativeTo, TEXTURE_EXTENSION, pathparts));
 	}
 	
 	private static Texture loadFromUrl(URL url) {

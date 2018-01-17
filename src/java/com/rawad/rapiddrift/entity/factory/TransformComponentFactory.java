@@ -6,7 +6,7 @@ import com.rawad.rapiddrift.entity.component.Component;
 import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
 import com.rawad.rapiddrift.math.Vector3f;
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * @author Rawad
@@ -35,19 +35,19 @@ public class TransformComponentFactory implements ComponentFactory<TransformComp
 		
 		String[] positionData = data.get(POSITION_KEY).split(VECTOR_SEPARATOR);
 		
-		transformComp.setPosition(new Vector3f(Util.parseFloat(positionData[X_INDEX]), 
-				Util.parseFloat(positionData[Y_INDEX]), Util.parseFloat(positionData[Z_INDEX])));
+		transformComp.setPosition(new Vector3f(Utils.parseFloat(positionData[X_INDEX]), 
+				Utils.parseFloat(positionData[Y_INDEX]), Utils.parseFloat(positionData[Z_INDEX])));
 		
 		String[] scaleData = data.get(SCALE_KEY).split(VECTOR_SEPARATOR);
 		
-		transformComp.setScale(new Vector3f(Util.parseFloat(scaleData[X_INDEX]), 
-				Util.parseFloat(scaleData[Y_INDEX]), Util.parseFloat(scaleData[Z_INDEX])));
+		transformComp.setScale(new Vector3f(Utils.parseFloat(scaleData[X_INDEX]), 
+				Utils.parseFloat(scaleData[Y_INDEX]), Utils.parseFloat(scaleData[Z_INDEX])));
 		
 		String[] rotationData = data.get(ROTATION_KEY).split(VECTOR_SEPARATOR);
 		
-		transformComp.setRotation(new Quaternionf(Util.parseFloat(rotationData[X_INDEX]), 
-				Util.parseFloat(rotationData[Y_INDEX]), Util.parseFloat(rotationData[Z_INDEX]), 
-				Util.parseFloat(rotationData[W_INDEX])));
+		transformComp.setRotation(new Quaternionf(Utils.parseFloat(rotationData[X_INDEX]), 
+				Utils.parseFloat(rotationData[Y_INDEX]), Utils.parseFloat(rotationData[Z_INDEX]), 
+				Utils.parseFloat(rotationData[W_INDEX])));
 		
 		return transformComp;
 		

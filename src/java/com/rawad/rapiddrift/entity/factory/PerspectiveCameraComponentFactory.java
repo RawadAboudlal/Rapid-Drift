@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.rawad.rapiddrift.entity.component.Component;
 import com.rawad.rapiddrift.entity.component.PerspectiveCameraComponent;
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * @author Rawad
@@ -24,9 +24,9 @@ public class PerspectiveCameraComponentFactory implements ComponentFactory<Persp
 		
 		PerspectiveCameraComponent perspectiveCameraComp = new PerspectiveCameraComponent();
 		
-		perspectiveCameraComp.setFieldOfView(Util.parseFloat(data.get(FIELD_OF_VIEW_KEY)));
-		perspectiveCameraComp.setNearClip(Util.parseFloat(data.get(NEAR_CLIP_KEY)));
-		perspectiveCameraComp.setFarClip(Util.parseFloat(data.get(FAR_CLIP_KEY)));
+		perspectiveCameraComp.setFieldOfView(Utils.parseFloat(data.get(FIELD_OF_VIEW_KEY)));
+		perspectiveCameraComp.setNearClip(Utils.parseFloat(data.get(NEAR_CLIP_KEY)));
+		perspectiveCameraComp.setFarClip(Utils.parseFloat(data.get(FAR_CLIP_KEY)));
 		
 		return perspectiveCameraComp;
 		

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL32;
 
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * @author Rawad
@@ -25,7 +25,7 @@ public class ShaderLoader {
 	
 	public static String loadShaderSource(Shader shader, String name) {
 		
-		InputStream inputStream = Util.openFileStream(shader.getClass(), 
+		InputStream inputStream = Utils.openFileStream(shader.getClass(), 
 				ShaderLoader.getExtensionByType(shader.getType()), name);
 		
 		StringBuilder source = new StringBuilder();
@@ -35,7 +35,7 @@ public class ShaderLoader {
 			String line = null;
 			
 			while((line = reader.readLine()) != null) {
-				source.append(line).append(Util.NL);
+				source.append(line).append(Utils.NL);
 			}
 			
 		} catch (FileNotFoundException ex) {

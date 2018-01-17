@@ -19,7 +19,7 @@
  */
 package com.rawad.rapiddrift.math;
 
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * This class represents a 4x4-Matrix. GLSL equivalent to mat4.
@@ -518,9 +518,9 @@ public class Matrix4f {
 	
 	@Override
 	public String toString() {
-		return "[ " + m00 + " " + m01 + " " + m02 + " " + m03 + Util.NL
-					+ m10 + " " + m11 + " " + m12 + " " + m13 + Util.NL
-					+ m20 + " " + m21 + " " + m22 + " " + m23 + Util.NL
+		return "[ " + m00 + " " + m01 + " " + m02 + " " + m03 + Utils.NL
+					+ m10 + " " + m11 + " " + m12 + " " + m13 + Utils.NL
+					+ m20 + " " + m21 + " " + m22 + " " + m23 + Utils.NL
 					+ m30 + " " + m31 + " " + m32 + " " + m33 + " ]";
 	}
 	

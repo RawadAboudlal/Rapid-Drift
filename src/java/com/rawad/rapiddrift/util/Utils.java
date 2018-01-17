@@ -8,7 +8,7 @@ import java.net.URL;
  * @author Rawad
  *
  */
-public class Util {
+public class Utils {
 	
 	public static final String NL = "\n";
 	public static final String FILE_SEPARATOR = "/";
@@ -20,23 +20,23 @@ public class Util {
 	}
 	
 	public static String getFilePath(String extension, String... pathParts) {
-		return Util.getPath(pathParts) + EXTENSION_SEPARATOR + extension;
+		return Utils.getPath(pathParts) + EXTENSION_SEPARATOR + extension;
 	}
 	
 	public static URL getResource(String extension, String... pathParts) {
-		return Util.class.getClassLoader().getResource(Util.getFilePath(extension, pathParts));
+		return Utils.class.getClassLoader().getResource(Utils.getFilePath(extension, pathParts));
 	}
 	
-	public static InputStream openFileStream(String extension, String... path) {
-		return Util.class.getClassLoader().getResourceAsStream(Util.getFilePath(extension, path));
+	public static InputStream openFileStream(String extension, String... pathParts) {
+		return Utils.class.getClassLoader().getResourceAsStream(Utils.getFilePath(extension, pathParts));
 	}
 	
 	public static URL getResource(Class<?> clazz, String extension, String... pathParts) {
-		return clazz.getResource(Util.getFilePath(extension, pathParts));
+		return clazz.getResource(Utils.getFilePath(extension, pathParts));
 	}
 	
 	public static InputStream openFileStream(Class<?> clazz, String extension, String... path) {
-		return clazz.getResourceAsStream(Util.getFilePath(extension, path));
+		return clazz.getResourceAsStream(Utils.getFilePath(extension, path));
 	}
 	
 	public static int parseInt(String potentialInt) {

@@ -15,7 +15,7 @@ import org.lwjgl.BufferUtils;
 import com.rawad.rapiddrift.math.Vector2f;
 import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.util.BufferFactory;
-import com.rawad.rapiddrift.util.Util;
+import com.rawad.rapiddrift.util.Utils;
 
 /**
  * @author Rawad
@@ -52,9 +52,9 @@ public class ObjFileLoader {
 		float z = 0f;
 		
 		if(vertexCoords.length >= Vector3f.SIZE) {
-			x = Util.parseFloat(vertexCoords[INDEX_X]);
-			y = Util.parseFloat(vertexCoords[INDEX_Y]);
-			z = Util.parseFloat(vertexCoords[INDEX_Z]);
+			x = Utils.parseFloat(vertexCoords[INDEX_X]);
+			y = Utils.parseFloat(vertexCoords[INDEX_Y]);
+			z = Utils.parseFloat(vertexCoords[INDEX_Z]);
 		}
 		
 		return new Vector3f(x, y, z);
@@ -69,8 +69,8 @@ public class ObjFileLoader {
 		float y = 0;
 		
 		if(textureCoords.length >= Vector2f.SIZE) {
-			x = Util.parseFloat(textureCoords[INDEX_X]);
-			y = Util.parseFloat(textureCoords[INDEX_Y]);
+			x = Utils.parseFloat(textureCoords[INDEX_X]);
+			y = Utils.parseFloat(textureCoords[INDEX_Y]);
 		}
 		
 		return new Vector2f(x, y);
@@ -88,9 +88,9 @@ public class ObjFileLoader {
 			
 			String[] indices = faces[i].split(REGEX_FACE_DATA);
 			
-			positionsIndices.add(Util.parseInt(indices[INDEX_POSITION]) - 1);
-			textureCoordsIndices.add(Util.parseInt(indices[INDEX_TEXTURE_COORDS]) - 1);
-			normalsIndices.add(Util.parseInt(indices[INDEX_NORMAL]) - 1);
+			positionsIndices.add(Utils.parseInt(indices[INDEX_POSITION]) - 1);
+			textureCoordsIndices.add(Utils.parseInt(indices[INDEX_TEXTURE_COORDS]) - 1);
+			normalsIndices.add(Utils.parseInt(indices[INDEX_NORMAL]) - 1);
 			
 			vertexCount++;
 			
@@ -160,11 +160,11 @@ public class ObjFileLoader {
 	}
 	
 	public static Mesh loadMesh(String... pathParts) {
-		return ObjFileLoader.loadFromInputStream(Util.openFileStream(OBJ_FILE_EXTENSION, pathParts));
+		return ObjFileLoader.loadFromInputStream(Utils.openFileStream(OBJ_FILE_EXTENSION, pathParts));
 	}
 	
 	public static Mesh loadMesh(Class<?> relativeTo, String... pathParts) {
-		return ObjFileLoader.loadFromInputStream(Util.openFileStream(relativeTo, OBJ_FILE_EXTENSION, pathParts));
+		return ObjFileLoader.loadFromInputStream(Utils.openFileStream(relativeTo, OBJ_FILE_EXTENSION, pathParts));
 	}
 	
 	private static Mesh loadFromInputStream(InputStream inputStream) {
