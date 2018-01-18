@@ -23,3 +23,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Allow jar filess as libraries ONLY in lib folder. Extra /**/ allows for adding folders in lib.
+!libs/**/*.jar
