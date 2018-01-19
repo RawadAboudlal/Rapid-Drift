@@ -1,10 +1,8 @@
 package com.rawad.rapiddrift.entity;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -12,6 +10,7 @@ import java.util.logging.Logger;
 
 import com.rawad.rapiddrift.entity.component.Component;
 import com.rawad.rapiddrift.entity.factory.ComponentFactory;
+import com.rawad.rapiddrift.util.IOUtils;
 import com.rawad.rapiddrift.util.Utils;
 
 /**
@@ -40,8 +39,8 @@ public class EntityBlueprintLoader {
 		Entity e = new Entity();
 		HashMap<String, String> data = new HashMap<String, String>();
 		
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(
-				Utils.getFilePath(ENTITY_BLUEPRINT_EXTENSION, pathParts))))) {
+		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(
+				ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
 			
 			String line = null;
 			String compName = null;
@@ -87,7 +86,7 @@ public class EntityBlueprintLoader {
 		
 		HashMap<String, String> data = new HashMap<String, String>();
 		
-		try (PrintWriter writer = new PrintWriter(Utils.getFilePath(ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
+		try (PrintWriter writer = new PrintWriter(IOUtils.openOutputStream(ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
 			
 			for(Component comp: e.getComponents()) {
 				

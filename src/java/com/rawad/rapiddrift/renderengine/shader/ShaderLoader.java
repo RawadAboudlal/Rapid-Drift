@@ -1,16 +1,16 @@
 package com.rawad.rapiddrift.renderengine.shader;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL32;
 
+import com.rawad.rapiddrift.util.IOUtils;
 import com.rawad.rapiddrift.util.Utils;
 
 /**
@@ -25,12 +25,11 @@ public class ShaderLoader {
 	
 	public static String loadShaderSource(Shader shader, String name) {
 		
-		InputStream inputStream = Utils.openFileStream(shader.getClass(), 
-				ShaderLoader.getExtensionByType(shader.getType()), name);
-		
 		StringBuilder source = new StringBuilder();
 		
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(ShaderLoader
+				.getExtensionByType(shader.getType()), shader.getClass().getPackage().getName()
+				.replace('.', File.separatorChar), name))) {
 			
 			String line = null;
 			

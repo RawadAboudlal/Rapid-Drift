@@ -1,7 +1,12 @@
 package com.rawad.rapiddrift.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -17,6 +22,8 @@ import org.lwjgl.BufferUtils;
  *
  */
 public final class IOUtils {
+	
+	private static final String EXTENSION_SEPARATOR = ".";
 	
 	private static ByteBuffer resizeBuffer(ByteBuffer buffer, int newCapacity) {
 		
@@ -85,26 +92,37 @@ public final class IOUtils {
 		
     }
     
-	/*
-	 * This class might be deprecated now. This piece of code is the one that needed it the most, was in TextureLoader.
-	 * Fixed by moving the res source directory into src and adding a java source directory, also in src.
-	try {
-		
-		ByteBuffer textureBuffer = IOUtil.ioResourceToByteBuffer(TextureLoader.class, 
-				Util.getPath(TEXTURE_EXTENSION, name), Byte.SIZE);
-		
-		ByteBuffer texture = STBImage.stbi_load_from_memory(textureBuffer, w, h, comp, STBImage.STBI_rgb_alpha);
-		
-		if(texture == null) {
-			throw new RuntimeException(String.format("Failed to load texture file %s.%s%s", name, Util.NL, 
-					STBImage.stbi_failure_reason()));
-		}
-		
-		return new Texture(w.get(), h.get(), texture);
-		
-	} catch(IOException ex) {
-		ex.printStackTrace();
+	public static String getPath(String... pathParts) {
+		return String.join(File.separator, pathParts);
 	}
-	*/
 	
+	public static String getFilePath(String extension, String... pathParts) {
+		return getPath(pathParts) + IOUtils.EXTENSION_SEPARATOR + extension;
+	}
+	
+	public static InputStreamReader openInputStreamReader(String extension, String... pathParts) throws FileNotFoundException {
+		return new InputStreamReader(new FileInputStream(IOUtils.getFilePath(extension, pathParts)));
+	}
+	
+	public static FileOutputStream openOutputStream(String extension, String... pathParts) throws FileNotFoundException {
+		return new FileOutputStream(IOUtils.getFilePath(extension, pathParts));
+	}
+	
+	/*
+	public static URL getResource(String extension, String... pathParts) {
+		return Utils.class.getClassLoader().getResource(getFilePath(extension, pathParts));
+	}
+	
+	public static InputStream openFileStream(String extension, String... pathParts) {
+		return Utils.class.getClassLoader().getResourceAsStream(getFilePath(extension, pathParts));
+	}
+	
+	public static URL getResource(Class<?> clazz, String extension, String... pathParts) {
+		return clazz.getResource(getFilePath(extension, pathParts));
+	}
+	
+	public static InputStream openFileStream(Class<?> clazz, String extension, String... path) {
+		return clazz.getResourceAsStream(getFilePath(extension, path));
+	}*/
+    
 }

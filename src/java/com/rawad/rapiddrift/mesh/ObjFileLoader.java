@@ -2,8 +2,6 @@ package com.rawad.rapiddrift.mesh;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -15,6 +13,7 @@ import org.lwjgl.BufferUtils;
 import com.rawad.rapiddrift.math.Vector2f;
 import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.util.BufferFactory;
+import com.rawad.rapiddrift.util.IOUtils;
 import com.rawad.rapiddrift.util.Utils;
 
 /**
@@ -160,14 +159,6 @@ public class ObjFileLoader {
 	}
 	
 	public static Mesh loadMesh(String... pathParts) {
-		return ObjFileLoader.loadFromInputStream(Utils.openFileStream(OBJ_FILE_EXTENSION, pathParts));
-	}
-	
-	public static Mesh loadMesh(Class<?> relativeTo, String... pathParts) {
-		return ObjFileLoader.loadFromInputStream(Utils.openFileStream(relativeTo, OBJ_FILE_EXTENSION, pathParts));
-	}
-	
-	private static Mesh loadFromInputStream(InputStream inputStream) {
 		
 		ArrayList<Vector3f> positions = new ArrayList<Vector3f>();
 		ArrayList<Vector3f> normals = new ArrayList<Vector3f>();
@@ -179,7 +170,7 @@ public class ObjFileLoader {
 		
 		int vertexCount = 0;
 		
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(OBJ_FILE_EXTENSION, pathParts))) {
 			
 			String line = null;
 			
