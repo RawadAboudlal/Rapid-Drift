@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 import com.rawad.rapiddrift.entity.component.Component;
 import com.rawad.rapiddrift.entity.component.MeshComponent;
-import com.rawad.rapiddrift.mesh.ObjFileLoader;
-import com.rawad.rapiddrift.util.Utils;
+import com.rawad.rapiddrift.util.IOUtils;
+import com.rawad.rapiddrift.util.Loader;
 
 /**
  * @author Rawad
@@ -23,10 +23,10 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 		
 		MeshComponent meshComp = new MeshComponent();
 		
-		String[] meshPath = data.get(MESH_KEY).split(Utils.FILE_SEPARATOR);
+		String[] meshPath = data.get(MESH_KEY).split(IOUtils.FILE_SEPARATOR);
 		
 		meshComp.setMeshPath(meshPath);
-		meshComp.setMesh(ObjFileLoader.loadMesh(meshPath));
+		meshComp.setMesh(Loader.loadMesh(data.get(Loader.ENTITY_NAME_KEY), meshPath));
 		
 		return meshComp;
 		
@@ -40,7 +40,7 @@ public class MeshComponentFactory implements ComponentFactory<MeshComponent> {
 		
 		MeshComponent meshComp = (MeshComponent) comp;
 		
-		data.put(MESH_KEY, String.join(Utils.FILE_SEPARATOR, meshComp.getMeshPath()));
+		data.put(MESH_KEY, String.join(IOUtils.FILE_SEPARATOR, meshComp.getMeshPath()));
 		
 		return data;
 		

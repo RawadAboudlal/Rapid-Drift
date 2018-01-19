@@ -7,7 +7,6 @@ package com.rawad.rapiddrift.util;
 public class Utils {
 	
 	public static final String NL = "\n";
-	public static final String FILE_SEPARATOR = "/";
 	
 	public static int parseInt(String potentialInt) {
 		

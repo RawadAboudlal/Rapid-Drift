@@ -1,7 +1,6 @@
 package com.rawad.rapiddrift.renderengine.shader;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -27,9 +26,8 @@ public class ShaderLoader {
 		
 		StringBuilder source = new StringBuilder();
 		
-		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(ShaderLoader
-				.getExtensionByType(shader.getType()), shader.getClass().getPackage().getName()
-				.replace('.', File.separatorChar), name))) {
+		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(shader.getClass(), name, ShaderLoader
+				.getExtensionByType(shader.getType())))) {
 			
 			String line = null;
 			

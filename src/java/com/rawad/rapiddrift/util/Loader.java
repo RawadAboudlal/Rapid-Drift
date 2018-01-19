@@ -1,6 +1,7 @@
 package com.rawad.rapiddrift.util;
 
 import java.io.File;
+import java.util.HashMap;
 
 import com.rawad.rapiddrift.entity.EntityBlueprintLoader;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
@@ -10,12 +11,18 @@ import com.rawad.rapiddrift.entity.factory.MeshComponentFactory;
 import com.rawad.rapiddrift.entity.factory.PerspectiveCameraComponentFactory;
 import com.rawad.rapiddrift.entity.factory.TextureComponentFactory;
 import com.rawad.rapiddrift.entity.factory.TransformComponentFactory;
+import com.rawad.rapiddrift.mesh.Mesh;
+import com.rawad.rapiddrift.mesh.ObjFileLoader;
+import com.rawad.rapiddrift.renderengine.texture.Texture;
+import com.rawad.rapiddrift.renderengine.texture.TextureLoader;
 
 /**
  * @author Rawad
  *
  */
 public final class Loader {
+	
+	public static final String ENTITY_NAME_KEY = "entity_name";
 	
 	// TODO: Use this instead of other stuff. EntityBlueprintMaker has way of getting all directories in entity package.
 	private static final String[] ENTITY_BLUEPRINT_PATH = {
@@ -38,8 +45,15 @@ public final class Loader {
 		
 		File entitiesFolder = new File(IOUtils.getPath(ENTITY_BLUEPRINT_PATH));
 		
+		HashMap<String, String> data = new HashMap<String, String>();
+		
 		for(File entityFolder: entitiesFolder.listFiles()) {
-			EntityBlueprintManager.addBlueprint(entityFolder.getName(), entityBlueprintLoader.loadEntityBlueprint(
+			
+			String entityName = entityFolder.getName();
+			
+			data.put(ENTITY_NAME_KEY, entityName);
+			
+			EntityBlueprintManager.addBlueprint(entityName, entityBlueprintLoader.loadEntityBlueprint(data,
 					entityFolder.getPath(), ENTITY_BLUEPRINT_FILE_NAME));
 		}
 		
@@ -68,6 +82,14 @@ public final class Loader {
 			
 		}
 		
+	}
+	
+	public static Mesh loadMesh(String entityName, String... meshPath) {
+		return ObjFileLoader.loadMesh(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, meshPath), entityName));
+	}
+	
+	public static Texture loadTexture(String entityName, String... texturePath) {
+		return TextureLoader.loadTexture(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, texturePath), entityName));
 	}
 	
 }

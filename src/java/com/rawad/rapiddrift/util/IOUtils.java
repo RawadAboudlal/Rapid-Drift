@@ -25,6 +25,9 @@ public final class IOUtils {
 	
 	private static final String EXTENSION_SEPARATOR = ".";
 	
+	/** This is to ensure compatibility across platforms. For use in saved files. */
+	public static final String FILE_SEPARATOR = "/";
+	
 	private static ByteBuffer resizeBuffer(ByteBuffer buffer, int newCapacity) {
 		
 		ByteBuffer newBuffer = BufferUtils.createByteBuffer(newCapacity);
@@ -108,21 +111,19 @@ public final class IOUtils {
 		return new FileOutputStream(IOUtils.getFilePath(extension, pathParts));
 	}
 	
-	/*
-	public static URL getResource(String extension, String... pathParts) {
-		return Utils.class.getClassLoader().getResource(getFilePath(extension, pathParts));
+	public static InputStreamReader openInputStreamReader(Class<?> relativeTo, String name, String extension) {
+		return new InputStreamReader(relativeTo.getResourceAsStream(IOUtils.getFilePath(extension, name)));
 	}
 	
-	public static InputStream openFileStream(String extension, String... pathParts) {
-		return Utils.class.getClassLoader().getResourceAsStream(getFilePath(extension, pathParts));
+	public static String[] mergePaths(String[] path1, String... path2) {
+		
+		String[] mergedPath = new String[path1.length + path2.length];
+		
+		System.arraycopy(path1, 0, mergedPath, 0, path1.length);
+		System.arraycopy(path2, 0, mergedPath, path1.length, path2.length);
+		
+		return mergedPath;
+		
 	}
 	
-	public static URL getResource(Class<?> clazz, String extension, String... pathParts) {
-		return clazz.getResource(getFilePath(extension, pathParts));
-	}
-	
-	public static InputStream openFileStream(Class<?> clazz, String extension, String... path) {
-		return clazz.getResourceAsStream(getFilePath(extension, path));
-	}*/
-    
 }

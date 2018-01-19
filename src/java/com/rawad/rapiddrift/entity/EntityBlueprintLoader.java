@@ -34,13 +34,14 @@ public class EntityBlueprintLoader {
 		
 	}
 	
-	public Entity loadEntityBlueprint(String... pathParts) {
+	public Entity loadEntityBlueprint(HashMap<String, String> data, String... pathParts) {
 		
 		Entity e = new Entity();
-		HashMap<String, String> data = new HashMap<String, String>();
 		
 		try (BufferedReader reader = new BufferedReader(IOUtils.openInputStreamReader(
 				ENTITY_BLUEPRINT_EXTENSION, pathParts))) {
+			
+			HashMap<String, String> workingData = data;
 			
 			String line = null;
 			String compName = null;
@@ -56,22 +57,22 @@ public class EntityBlueprintLoader {
 				if(separatorIndex == -1) {
 					
 					if(compName != null) {
-						e.addComponent(this.getComponentFactory(compName).createComponent(data));
-						data.clear();
+						e.addComponent(this.getComponentFactory(compName).createComponent(workingData));
+						workingData = data;
 					}
 					
 					compName = line.trim();
 					
 				} else {
 					
-					data.put(line.substring(0, separatorIndex).trim(), line.substring(separatorIndex + 1));
+					workingData.put(line.substring(0, separatorIndex).trim(), line.substring(separatorIndex + 1));
 					
 				}
 				
 			}
 			
 			// For the last component.
-			e.addComponent(this.getComponentFactory(compName).createComponent(data));
+			e.addComponent(this.getComponentFactory(compName).createComponent(workingData));
 			
 		} catch (IOException ex) {
 			ex.printStackTrace();

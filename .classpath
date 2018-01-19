@@ -33,10 +33,84 @@
 	<classpathentry kind="lib" path="lib/lwjgl-xxhash.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-yoga.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-zstd.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl.jar" sourcepath="lib/sources/lwjgl-sources.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Rapid Drift/lib/native"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-bgfx-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-bgfx-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-bgfx-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-glfw-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-glfw-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-glfw-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-jemalloc-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-jemalloc-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-jemalloc-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lmdb-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lmdb-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lmdb-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lz4-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lz4-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-lz4-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nanovg-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nanovg-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nanovg-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nfd-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nfd-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nfd-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nuklear-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nuklear-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-nuklear-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openal-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openal-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openal-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengles-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengles-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-opengles-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openvr-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openvr-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-openvr-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-ovr-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-ovr-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-ovr-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-par-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-par-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-par-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-remotery-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-remotery-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-remotery-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-rpmalloc-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-rpmalloc-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-rpmalloc-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-sse-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-sse-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-sse-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-stb-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-stb-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-stb-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyexr-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyexr-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyexr-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyfd-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyfd-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tinyfd-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tootle-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tootle-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-tootle-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-xxhash-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-xxhash-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-xxhash-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-yoga-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-yoga-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-yoga-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-zstd-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-zstd-natives-macos.jar"/>
+	<classpathentry kind="lib" path="lib/natives/lwjgl-zstd-natives-windows.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

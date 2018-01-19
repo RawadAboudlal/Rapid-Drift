@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 import com.rawad.rapiddrift.entity.component.Component;
 import com.rawad.rapiddrift.entity.component.TextureComponent;
-import com.rawad.rapiddrift.renderengine.texture.TextureLoader;
-import com.rawad.rapiddrift.util.Utils;
+import com.rawad.rapiddrift.util.IOUtils;
+import com.rawad.rapiddrift.util.Loader;
 
 /**
  * @author Rawad
@@ -23,10 +23,10 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 		
 		TextureComponent textureComp = new TextureComponent();
 		
-		String[] texturePath = data.get(TEXTURE_KEY).split(Utils.FILE_SEPARATOR);
+		String[] texturePath = data.get(TEXTURE_KEY).split(IOUtils.FILE_SEPARATOR);
 		
 		textureComp.setTexturePath(texturePath);
-		textureComp.setTexture(TextureLoader.loadTexture(texturePath));
+		textureComp.setTexture(Loader.loadTexture(data.get(Loader.ENTITY_NAME_KEY), texturePath));
 		
 		return textureComp;
 		
@@ -40,7 +40,7 @@ public class TextureComponentFactory implements ComponentFactory<TextureComponen
 		
 		TextureComponent textureComp = (TextureComponent) comp;
 		
-		data.put(TEXTURE_KEY, String.join(Utils.FILE_SEPARATOR, textureComp.getTexturePath()));
+		data.put(TEXTURE_KEY, String.join(IOUtils.FILE_SEPARATOR, textureComp.getTexturePath()));
 		
 		return data;
 		

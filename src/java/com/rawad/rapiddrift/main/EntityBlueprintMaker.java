@@ -32,11 +32,11 @@ public class EntityBlueprintMaker {
 		faceTransform.setPosition(new Vector3f(0, 0, -5));
 		faceTransform.setRotation(new Quaternionf(new Vector3f(0, 0, -1), 0));
 		
-		String[] faceTexturePath = {"entity", "face", "face"};
+		String[] faceTexturePath = {"face"};
 		
 		faceTexture.setTexturePath(faceTexturePath);
 		
-		String[] faceMeshPath = {"entity", "face", "face"};
+		String[] faceMeshPath = {"face"};
 		
 		faceMesh.setMeshPath(faceMeshPath);
 		
@@ -61,13 +61,6 @@ public class EntityBlueprintMaker {
 		
 		// Need to ensure these folder and the entity folder are all already present on file system.
 		Loader.saveEntities();
-		
-//		File entityFolder = new File("src/res/entity/");
-//		
-//		for(File file: entityFolder.listFiles()) {
-//			System.out.println(file.getPath());
-//		}
-		
 		
 	}
 	
