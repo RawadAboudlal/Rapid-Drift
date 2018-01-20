@@ -6,9 +6,17 @@
 	<classpathentry kind="lib" path="lib/lwjgl-assimp.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-bgfx.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-egl.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-glfw.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-glfw.jar" sourcepath="lib/sources/lwjgl-glfw-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rapid%20Drift/lib/javadoc/lwjgl-glfw-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/lwjgl-jawt.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-jemalloc.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-jemalloc.jar" sourcepath="lib/sources/lwjgl-jemalloc-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rapid%20Drift/lib/javadoc/lwjgl-jemalloc-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/lwjgl-lmdb.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-lz4.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-nanovg.jar"/>
@@ -17,7 +25,11 @@
 	<classpathentry kind="lib" path="lib/lwjgl-odbc.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-openal.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-opencl.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-opengl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-opengl.jar" sourcepath="lib/sources/lwjgl-opengl-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rapid%20Drift/lib/javadoc/lwjgl-opengl-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/lwjgl-opengles.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-openvr.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-ovr.jar"/>
@@ -33,7 +45,11 @@
 	<classpathentry kind="lib" path="lib/lwjgl-xxhash.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-yoga.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-zstd.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl.jar" sourcepath="lib/sources/lwjgl-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rapid%20Drift/lib/javadoc/lwjgl-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-linux.jar"/>
 	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-macos.jar"/>
 	<classpathentry kind="lib" path="lib/natives/lwjgl-assimp-natives-windows.jar"/>
