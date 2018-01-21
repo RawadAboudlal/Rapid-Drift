@@ -8,7 +8,8 @@ package com.rawad.rapiddrift.entity;
 public enum EntityLocator {
 	
 	CAMERA("camera"),
-	FACE("face");
+	FACE("face"),
+	RING("ring");
 	
 	private final String name;
 	

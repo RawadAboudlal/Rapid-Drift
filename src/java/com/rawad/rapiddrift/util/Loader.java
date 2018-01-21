@@ -7,6 +7,7 @@ import com.rawad.rapiddrift.entity.EntityBlueprintLoader;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
 import com.rawad.rapiddrift.entity.factory.AttachmentComponentFactory;
 import com.rawad.rapiddrift.entity.factory.ComponentFactory;
+import com.rawad.rapiddrift.entity.factory.ForwardComponentFactory;
 import com.rawad.rapiddrift.entity.factory.MeshComponentFactory;
 import com.rawad.rapiddrift.entity.factory.PerspectiveCameraComponentFactory;
 import com.rawad.rapiddrift.entity.factory.TextureComponentFactory;
@@ -39,6 +40,7 @@ public final class Loader {
 		new TextureComponentFactory(),
 		new PerspectiveCameraComponentFactory(),
 		new AttachmentComponentFactory(),
+		new ForwardComponentFactory(),
 	});
 	
 	public static void loadEntities() {
@@ -85,11 +87,11 @@ public final class Loader {
 	}
 	
 	public static Mesh loadMesh(String entityName, String... meshPath) {
-		return ObjFileLoader.loadMesh(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, meshPath), entityName));
+		return ObjFileLoader.loadMesh(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, entityName), meshPath));
 	}
 	
 	public static Texture loadTexture(String entityName, String... texturePath) {
-		return TextureLoader.loadTexture(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, texturePath), entityName));
+		return TextureLoader.loadTexture(IOUtils.mergePaths(IOUtils.mergePaths(ENTITY_BLUEPRINT_PATH, entityName), texturePath));
 	}
 	
 }

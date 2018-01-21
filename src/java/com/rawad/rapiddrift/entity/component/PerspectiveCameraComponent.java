@@ -106,9 +106,9 @@ public class PerspectiveCameraComponent extends Component {
 	}
 	
 	public static Matrix4f toViewMatrix(TransformComponent cameraTransform) {
-		// The purposee of this method is to negate the camera position. This makes a difference when directly moving camera.
-		return Matrix4f.translate(cameraTransform.getPosition().negate()).multiply(Matrix4f.rotate(cameraTransform.getRotation()))
-				.multiply(Matrix4f.scale(cameraTransform.getScale()));
+		// THERE IS NO REASON FOR THIS; WHEN MOVING CAMERA MANUALLY JUST USE NEGATIVE DIRECTION.
+		return Matrix4f.translate(cameraTransform.getPosition().negate()).multiply(
+				Matrix4f.rotate(cameraTransform.getRotation().conjugate()));
 	}
 	
 	public static Matrix4f toMatrix(PerspectiveCameraComponent perspectiveCamera) {

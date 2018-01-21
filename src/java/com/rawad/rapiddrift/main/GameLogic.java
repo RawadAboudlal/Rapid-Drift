@@ -15,6 +15,7 @@ import com.rawad.rapiddrift.entity.EntityLocator;
 import com.rawad.rapiddrift.entity.component.AttachmentComponent;
 import com.rawad.rapiddrift.entity.component.TextureComponent;
 import com.rawad.rapiddrift.entity.component.TransformComponent;
+import com.rawad.rapiddrift.math.Quaternionf;
 import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.renderengine.IRenderer;
 import com.rawad.rapiddrift.renderengine.MasterRenderer;
@@ -53,6 +54,8 @@ public class GameLogic implements IGameLogic, IRenderer {
 	private Entity face;
 	private TransformComponent transformComp;
 	private TextureComponent textureComp;
+	
+	private Entity ring;
 	
 	/**
 	 * @see com.rawad.rapiddrift.engine.IGameLogic#init()
@@ -98,6 +101,8 @@ public class GameLogic implements IGameLogic, IRenderer {
 		
 		((AttachmentComponent) camera.getComponent(AttachmentComponent.class)).setAttachedTo(face);
 		
+		ring = EntityBlueprintManager.createEntity(EntityLocator.RING);
+		
 		masterRenderer = new MasterRenderer(this);
 		
 		gameEngine.setSecondsPerUpdate(1d / TARGET_UPDATE_RATE);
@@ -120,7 +125,7 @@ public class GameLogic implements IGameLogic, IRenderer {
 		Mouse.update();
 		
 		for(GameSystem gameSystem: gameSystems) {
-			gameSystem.preTick(camera, face);
+			gameSystem.preTick(camera, face, ring);
 		}
 		
 	}
@@ -158,7 +163,7 @@ public class GameLogic implements IGameLogic, IRenderer {
 			rotY = -5;
 		}
 		
-//		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)));
+		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)));
 		
 		for(GameSystem gameSystem: gameSystems) {
 			gameSystem.tick();
@@ -184,7 +189,7 @@ public class GameLogic implements IGameLogic, IRenderer {
 	@Override
 	public void render() {
 		
-		staticModelRenderer.render(face);
+		staticModelRenderer.render(face, ring);
 		
 	}
 	

@@ -3,6 +3,7 @@ package com.rawad.rapiddrift.main;
 import com.rawad.rapiddrift.engine.GameSystem;
 import com.rawad.rapiddrift.entity.Entity;
 import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.ForwardComponent;
 import com.rawad.rapiddrift.entity.component.PerspectiveCameraComponent;
 import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
@@ -22,6 +23,7 @@ public class FollowerCameraSystem extends GameSystem {
 			TransformComponent.class,
 			PerspectiveCameraComponent.class,
 			AttachmentComponent.class,
+			ForwardComponent.class,
 	};
 	
 	protected FollowerCameraSystem() {
@@ -37,42 +39,29 @@ public class FollowerCameraSystem extends GameSystem {
 		AttachmentComponent attachmentComp = (AttachmentComponent) cameraEntity.getComponent(AttachmentComponent.class);
 		Entity attachedTo = attachmentComp.getAttachedTo();
 		
-		if(attachedTo == null || !attachedTo.hasComponents(TransformComponent.class)) return;
+		if(attachedTo == null || !attachedTo.hasComponents(TransformComponent.class, ForwardComponent.class)) return;
 		
 		TransformComponent cameraTransform = (TransformComponent) cameraEntity.getComponent(TransformComponent.class);
 		TransformComponent attachedToTransform = (TransformComponent) attachedTo.getComponent(TransformComponent.class);
+		
+		ForwardComponent cameraForwad = (ForwardComponent) cameraEntity.getComponent(ForwardComponent.class);
+		ForwardComponent attachedToForward = (ForwardComponent) attachedTo.getComponent(ForwardComponent.class);
 		
 		Vector3f attachedToPosition = attachedToTransform.getPosition();
 		
 		Quaternionf attachedToRotation = attachedToTransform.getRotation();
 		Quaternionf cameraRotation = cameraTransform.getRotation();
 		
-		Vector3f cameraOrientation = attachedToRotation.toVector3f();
-		Vector3f attachedToOrientation = cameraRotation.toVector3f();
+		Vector3f attachedToOrientation = attachedToRotation.rotate(attachedToForward.getForwardDirection());
 		
 //		Vector3f newCameraPosition = attachedToPosition.subtract(attachedToOrientation.normalize().scale(DISTANCE_BEHIND));
 		
 		cameraTransform.setPosition(attachedToPosition.subtract(attachedToOrientation.normalize().scale(DISTANCE_BEHIND)));
 		
-		// TODO: Think about the forward direction of an object vs. the rotation and how that affects it.
+//		cameraTransform.setRotation(new Quaternionf(new Vector3f(0, -1, 0), 0))/;//cameraRotation.multiply(new Quaternionf(new Vector3f(0, 1, 0), 1)));
 		
-//		cameraTransform.setRotation(attachedToRotation);
-		
-		System.out.printf("Camera position: %s, Attached to position: %s\nAttached to rotation axis angle: %s\n", 
-				cameraTransform.getPosition(), attachedToPosition, attachedToRotation.toRotationAxisAngle());
-		
-//		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), 1)));
-//		transformComp.setRotation(new Quaternionf(attachedToPosition.subtract(newCameraPosition)));
-		
-//		if(cameraOrientation.dot(attachedToOrientation) <= MIN_ROTATION_DIFFERENCE) {
-//			transformComp.setRotation(attachedToTransform.getRotation());
-//		} else {
-			
-//			Vector3f newCameraOrientation = cameraOrientation.add(attachedToOrientation).divide(2);
-			
-//			transformComp.setRotation(new Quaternionf(newCameraOrientation));
-			
-//		}
+//		System.out.printf("Camera position: %s, Attached to position: %s\nAttached to rotation axis angle: %s\n", 
+//				cameraTransform.getPosition(), attachedToPosition, attachedToRotation.toRotationAxisAngle());
 		
 	}
 	
