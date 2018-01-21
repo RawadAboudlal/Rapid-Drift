@@ -31,7 +31,7 @@ public class EntityBlueprintMaker {
 		MeshComponent faceMesh = new MeshComponent();
 		ForwardComponent faceForward = new ForwardComponent();
 		
-		faceTransform.setPosition(new Vector3f(0, 0, 5));
+		faceTransform.setPosition(new Vector3f(0, 0, -5));
 		faceTransform.setRotation(new Quaternionf(new Vector3f(0, 0, -1), 0));
 		
 		String[] faceTexturePath = {"face"};

@@ -54,6 +54,9 @@ public class StaticModelRenderer implements IEntityRenderer {
 		
 		staticModelShader.use();
 		
+		Matrix4f viewMatrix = PerspectiveCameraComponent.toViewMatrix(cameraTransform);
+		Matrix4f projectionMatrix = PerspectiveCameraComponent.toMatrix(perspectiveCamera);
+		
 		for(Entity e: entities) {
 			
 			TransformComponent transformComp = (TransformComponent) e.getComponent(TransformComponent.class);
@@ -66,8 +69,8 @@ public class StaticModelRenderer implements IEntityRenderer {
 			Mesh mesh = meshComp.getMesh();
 			
 			staticModelShader.setModelMatrix(modelMatrix);
-			staticModelShader.setViewMatrix(PerspectiveCameraComponent.toViewMatrix(cameraTransform));
-			staticModelShader.setProjectionMatrix(PerspectiveCameraComponent.toMatrix(perspectiveCamera));
+			staticModelShader.setViewMatrix(viewMatrix);
+			staticModelShader.setProjectionMatrix(projectionMatrix);
 			
 			GL13.glActiveTexture(GL13.GL_TEXTURE0);
 			texture.bind();

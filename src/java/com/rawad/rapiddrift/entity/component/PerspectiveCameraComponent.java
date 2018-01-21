@@ -106,9 +106,8 @@ public class PerspectiveCameraComponent extends Component {
 	}
 	
 	public static Matrix4f toViewMatrix(TransformComponent cameraTransform) {
-		// THERE IS NO REASON FOR THIS; WHEN MOVING CAMERA MANUALLY JUST USE NEGATIVE DIRECTION.
-		return Matrix4f.translate(cameraTransform.getPosition().negate()).multiply(
-				Matrix4f.rotate(cameraTransform.getRotation().conjugate()));
+		return Matrix4f.translate(cameraTransform.getPosition().negate());//.multiply(Matrix4f.rotate(cameraTransform.getRotation()));
+//		return Matrix4f.translate(cameraTransform.getPosition()).multiply(Matrix4f.rotate(cameraTransform.getRotation()));
 	}
 	
 	public static Matrix4f toMatrix(PerspectiveCameraComponent perspectiveCamera) {
