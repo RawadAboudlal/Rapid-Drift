@@ -106,7 +106,7 @@ public class PerspectiveCameraComponent extends Component {
 	}
 	
 	public static Matrix4f toViewMatrix(TransformComponent cameraTransform) {
-		return Matrix4f.translate(cameraTransform.getPosition().negate());//.multiply(Matrix4f.rotate(cameraTransform.getRotation()));
+		return Matrix4f.rotate(cameraTransform.getRotation()).multiply(Matrix4f.translate(cameraTransform.getPosition().negate()));
 //		return Matrix4f.translate(cameraTransform.getPosition()).multiply(Matrix4f.rotate(cameraTransform.getRotation()));
 	}
 	

@@ -1,5 +1,5 @@
 com.rawad.rapiddrift.entity.component.TransformComponent
-	rotation=0.0,0.0,-0.0,1.0
+	rotation=0.0,0.0,0.0,1.0
 	scale=1.0,1.0,1.0
 	position=0.0,0.0,0.0
 com.rawad.rapiddrift.entity.component.ForwardComponent

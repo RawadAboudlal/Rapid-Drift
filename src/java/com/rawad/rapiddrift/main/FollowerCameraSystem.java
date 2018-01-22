@@ -58,7 +58,7 @@ public class FollowerCameraSystem extends GameSystem {
 		
 //		Vector3f newCameraPosition = attachedToPosition.subtract(attachedToOrientation.normalize().scale(DISTANCE_BEHIND));
 		
-		cameraTransform.setPosition(attachedToPosition.subtract(new Vector3f(0, 0, -1).scale(DISTANCE_BEHIND)));
+//		cameraTransform.setPosition(attachedToPosition.subtract(new Vector3f(0, 0, -1).scale(DISTANCE_BEHIND)));
 		
 //		cameraTransform.setRotation(new Quaternionf(new Vector3f(0, -1, 0), 0))/;//cameraRotation.multiply(new Quaternionf(new Vector3f(0, 1, 0), 1)));
 		

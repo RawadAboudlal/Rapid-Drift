@@ -51,7 +51,7 @@ public class EntityBlueprintMaker {
 		AttachmentComponent attachmentComp = new AttachmentComponent();
 		ForwardComponent cameraForward = new ForwardComponent();
 		
-		cameraTransform.setRotation(new Quaternionf(new Vector3f(0, 0, -1), 0));
+		cameraTransform.setRotation(new Quaternionf(new Vector3f(0, 0, 1), 0));
 		
 		perspectiveCameraComp.setNearClip(0.1f);
 		perspectiveCameraComp.setFarClip(100f);

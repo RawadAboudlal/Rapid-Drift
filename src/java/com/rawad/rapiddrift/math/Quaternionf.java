@@ -63,7 +63,7 @@ public class Quaternionf {
 	}
 	
 	public Quaternionf() {
-		this(0, 0, 1f, 0);// Important default value; which is 1f is irrelevant.
+		this(0, 0, 0, 1f);
 	}
 	
 	/**
@@ -112,12 +112,12 @@ public class Quaternionf {
 	
 	public Vector3f toVector3f() {
 		
-//		float s = (float) Math.sin(this.getRotationAngle() / 2d);
+		float s = (float) Math.sin(this.getRotationAngle() / 2d);
 		// acos(w) = theta / 2 since w = cos(theta / 2), avoid inaccuracy this way.
 		
-//		return new Vector3f(this.x / s, this.y / s, this.z / s);
+		return new Vector3f(this.x / s, this.y / s, this.z / s);
 		
-		return new Vector3f(this.x, this.y, this.z);
+//		return new Vector3f(this.x, this.y, this.z);
 		
 	}
 	

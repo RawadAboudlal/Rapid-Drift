@@ -96,7 +96,7 @@ public class GameLogic implements IGameLogic, IRenderer {
 		
 		face = EntityBlueprintManager.createEntity(EntityLocator.FACE);
 		
-		transformComp = (TransformComponent) face.getComponent(TransformComponent.class);
+		transformComp = (TransformComponent) camera.getComponent(TransformComponent.class);
 		textureComp = (TextureComponent) face.getComponent(TextureComponent.class);
 		
 		((AttachmentComponent) camera.getComponent(AttachmentComponent.class)).setAttachedTo(face);
@@ -163,7 +163,16 @@ public class GameLogic implements IGameLogic, IRenderer {
 			rotY = -5;
 		}
 		
-		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)));
+		float rotX = 0;
+		
+		if(Keyboard.isKeyDown(GLFW.GLFW_KEY_W)) {
+			rotX = 5;
+		} else if(Keyboard.isKeyDown(GLFW.GLFW_KEY_S)) {
+			rotX = -5;
+		}
+		
+		transformComp.setRotation(transformComp.getRotation().multiply(new Quaternionf(new Vector3f(0, 1, 0), rotY)
+				.multiply(new Quaternionf(new Vector3f(1, 0, 0), rotX))));
 		
 		for(GameSystem gameSystem: gameSystems) {
 			gameSystem.tick();
