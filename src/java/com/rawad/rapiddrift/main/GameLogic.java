@@ -13,6 +13,7 @@ import com.rawad.rapiddrift.entity.Entity;
 import com.rawad.rapiddrift.entity.EntityBlueprintManager;
 import com.rawad.rapiddrift.entity.EntityLocator;
 import com.rawad.rapiddrift.entity.component.AttachmentComponent;
+import com.rawad.rapiddrift.entity.component.ForwardComponent;
 import com.rawad.rapiddrift.entity.component.TextureComponent;
 import com.rawad.rapiddrift.entity.component.TransformComponent;
 import com.rawad.rapiddrift.math.Quaternionf;
@@ -20,6 +21,7 @@ import com.rawad.rapiddrift.math.Vector3f;
 import com.rawad.rapiddrift.renderengine.IRenderer;
 import com.rawad.rapiddrift.renderengine.MasterRenderer;
 import com.rawad.rapiddrift.renderengine.StaticModelRenderer;
+import com.rawad.rapiddrift.util.CameraUtils;
 import com.rawad.rapiddrift.util.Loader;
 import com.rawad.rapiddrift.window.Keyboard;
 import com.rawad.rapiddrift.window.Mouse;
@@ -50,6 +52,8 @@ public class GameLogic implements IGameLogic, IRenderer {
 	private StaticModelRenderer staticModelRenderer;
 	
 	private Entity camera;
+	private TransformComponent cameraTransform;
+	private ForwardComponent cameraForward;
 	
 	private Entity face;
 	private TransformComponent transformComp;
@@ -94,9 +98,12 @@ public class GameLogic implements IGameLogic, IRenderer {
 		
 		camera = EntityBlueprintManager.createEntity(EntityLocator.CAMERA);
 		
+		cameraTransform = (TransformComponent) camera.getComponent(TransformComponent.class);
+		cameraForward = (ForwardComponent) camera.getComponent(ForwardComponent.class);
+		
 		face = EntityBlueprintManager.createEntity(EntityLocator.FACE);
 		
-		transformComp = (TransformComponent) camera.getComponent(TransformComponent.class);
+		transformComp = (TransformComponent) face.getComponent(TransformComponent.class);
 		textureComp = (TextureComponent) face.getComponent(TextureComponent.class);
 		
 		((AttachmentComponent) camera.getComponent(AttachmentComponent.class)).setAttachedTo(face);
@@ -138,6 +145,17 @@ public class GameLogic implements IGameLogic, IRenderer {
 		
 		float x = 0;
 		float z = 0;
+		
+		if(Keyboard.isKeyDown(GLFW.GLFW_KEY_SPACE)) {
+			
+			Vector3f forward = cameraForward.getForwardDirection();
+			Vector3f cameraPosition = cameraTransform.getPosition();
+			
+			Vector3f lookAtPosition = transformComp.getPosition();
+			
+			cameraTransform.setRotation(CameraUtils.lookAt(cameraPosition, lookAtPosition, forward));
+			
+		}
 		
 		if(Keyboard.isKeyDown(GLFW.GLFW_KEY_RIGHT)) {
 			x = 1;
